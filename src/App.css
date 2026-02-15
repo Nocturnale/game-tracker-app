@@ -19,3 +19,15 @@ body {
 span{
   margin-left : 10px;
 }
+
+.game-list{
+  display:flex;
+  justify-content: space-around;
+  margin:5px;
+  gap:10px;
+}
+.game-card{
+  background-color: #ffd54f;
+  border-radius : 6px;
+  padding:5px;
+}
