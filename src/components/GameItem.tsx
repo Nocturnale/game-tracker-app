@@ -1,8 +1,16 @@
-export default function GameItem(){
+import type { Game } from "../type";
+
+type GameProps = {
+  readonly game:Game;
+};
+
+export default function GameItem({game}:GameProps){
     return(
-        <div className="game-card">
-            <h2>Nom du game</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, nihil!</p>
-        </div>
+        <>
+            <h2>{game.title}</h2>
+            <p>Nombres d'heures jouées : {game.playedHours}</p>
+            <p>Statut : {game.status}</p>
+            <p>Priorité : {game.priority}</p>
+       </>
     )
 }
