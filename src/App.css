@@ -16,6 +16,9 @@ body {
 .nav-list img{
   width : 40px;
 }
+.nav-menu{
+  list-style-type: none;
+}
 span{
   margin-left : 10px;
 }
@@ -31,4 +34,7 @@ span{
   color:#242424;
   border-radius : 6px;
   padding:5px;
+}
+.game-list p{
+  margin : 0;
 }

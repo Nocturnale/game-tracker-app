@@ -6,6 +6,10 @@ export default function Header(){
             <nav className="nav-list">
                 <img src={logoGame} alt="Logo appli game tracker" />
                 <span>game tracking</span>
+                <ul className="nav-menu">
+                    <li>Liste jeux</li>
+                    <li>Nouvelle entrée</li>
+                </ul>
             </nav>
         </header>
     )
