@@ -5,4 +5,5 @@
     rating: number
     status: string
     priority: string
+    device:string
  };

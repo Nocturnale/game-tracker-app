@@ -6,7 +6,15 @@ body {
   height:90px;
   background-color: #ff5757;
 }
-
+.header a{
+  text-decoration: none;
+    color:white;
+  padding :2px;
+}
+.header a:hover{
+  background-color: rgb(76,182,172);
+  border-radius: 3px;
+}
 .nav-list{
   display : flex;
   justify-content:center;

@@ -5,7 +5,8 @@
     "playedHours": 207,
     "rating": 9,
     "priority": "Basse",
-    "status": "Terminé"
+    "status": "Terminé",
+    "device":"PC"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "playedHours": 164,
     "rating": 10,
     "priority": "Basse",
-    "status": "En cours"
+    "status": "En cours",
+    "device":"PC"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "playedHours": 6,
     "rating": 10,
     "priority": "Moyenne",
-    "status": "En cours"
+    "status": "En cours",
+    "device":"PC"
   },
   {
     "id": 4,
@@ -29,6 +32,7 @@
     "playedHours": 0,
     "rating": 0,
     "priority": "Moyenne",
-    "status": "À faire"
+    "status": "À faire",
+    "device":"PC"
   }
 ]
