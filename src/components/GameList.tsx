@@ -1,16 +1,13 @@
 import GameItem from "./GameItem";
 import type {Game} from "../type";
-import {getGames} from "../services/gameService";
-import { useEffect, useState } from "react";
 
 
+type GameListProps = {
+  readonly games: Game[];
+};
 
-export default function GameList(){
-    const [games, setGames] = useState<Game[]>([])
+export default function GameList({games}: GameListProps){
 
-    useEffect(() => {
-        getGames().then(setGames)
-    }, [])
 
     return(
         <div className="game-list">

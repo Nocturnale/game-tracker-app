@@ -1,9 +1,10 @@
 import { addGame } from "../services/gameService";
-import { STATUS_OPTIONS, PRIORITY_OPTIONS, DEVICES, type Device, type Status, type Priority } from "../type"
+import { STATUS_OPTIONS, PRIORITY_OPTIONS, DEVICES, type Device, type Status, type Priority, type Game } from "../type"
 import { useState } from "react";
+    import { useNavigate } from "react-router-dom";
 
 interface GameFormProps {
-    readonly onGameAdded: () => void;
+    readonly onGameAdded: (newGame : Game) => void;
 }
 
 export default function GameForm({onGameAdded}: GameFormProps){
@@ -17,10 +18,12 @@ export default function GameForm({onGameAdded}: GameFormProps){
     const [estimatedHours, setEstimatedHours] = useState(0);
     const [priority, setPriority] = useState<Priority>("Moyenne");
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e:React.SyntheticEvent<HTMLFormElement>) =>{
         e.preventDefault()
 
-        await addGame({
+        const newGame = await addGame({
             title,
             device,
             status,
@@ -30,7 +33,8 @@ export default function GameForm({onGameAdded}: GameFormProps){
             priority
         })
 
-        onGameAdded()
+        onGameAdded(newGame)
+        navigate("/");
     }
     return (
         <>

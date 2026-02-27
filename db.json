@@ -45,6 +45,26 @@
       "rating": 9,
       "estimatedHours": 0,
       "priority": "Moyenne"
+    },
+    {
+      "id": "6cd0",
+      "title": "Final Fantasy Tactics Advance",
+      "device": "gameboyAdvance",
+      "status": "Terminé",
+      "playedHours": 50,
+      "rating": 8,
+      "estimatedHours": 0,
+      "priority": "Moyenne"
+    },
+    {
+      "id": "49ec",
+      "title": "Sea of Thieves",
+      "device": "pc",
+      "status": "En cours",
+      "playedHours": 60,
+      "rating": 8,
+      "estimatedHours": 0,
+      "priority": "Moyenne"
     }
   ]
 }
