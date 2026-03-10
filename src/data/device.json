@@ -1,85 +1,67 @@
 [
   {
-    "id": 1,
     "label": "Game Boy",
     "value": "gameboy"
   },
   {
-    "id": 2,
     "label": "Game Boy Color",
     "value": "gameboyColor"
   },  
   {
-    "id": 3,
     "label": "Game Boy Advance",
     "value": "gameboyAdvance"
   },  {
-    "id": 4,
     "label": "DS",
     "value": "ds"
   },  {
-    "id": 5,
     "label": "3DS",
     "value": "3ds"
   },  {
-    "id": 6,
     "label": "Playstation",
     "value": "playstation"
   },  {
-    "id": 7,
     "label": "Playstation 2",
     "value": "playstation2"
   },  {
-    "id": 8,
     "label": "NES",
     "value": "nes"
   },  {
-    "id": 9,
     "label": "Super NES",
     "value": "superNes"
   },  
   {
-    "id": 10,
     "label": "N64",
     "value": "n64"
   },
     {
-    "id": 11,
     "label": "Switch",
     "value": "switch"
   },
     {
-    "id": 12,
     "label": "Switch 2",
     "value": "switch2"
   },
     {
-    "id": 13,
     "label": "PC",
     "value": "pc"
   },
     {
-    "id": 14,
     "label": "Wii",
     "value": "wii"
   },
     {
-    "id": 15,
     "label": "Wii U",
     "value": "wiiU"
   },
     {
-    "id": 16,
     "label": "Xbox",
     "value": "xbox"
   },
     {
-    "id": 17,
     "label": "Mobile",
     "value": "mobile"
   },
     {
-    "id": 18,
     "label": "Flash",
     "value": "flash"
   }

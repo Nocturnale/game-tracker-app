@@ -1,11 +1,12 @@
 import GameItem from "./GameItem";
 import type {Game} from "../type";
 
-interface Props {
-  readonly games: Game[];
-}
 
-export default function GameList({games}:Props){
+type GameListProps = {
+  readonly games: Game[];
+};
+
+export default function GameList({games}: GameListProps){
 
 
     return(
