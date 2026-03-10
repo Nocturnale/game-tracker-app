@@ -1,6 +1,6 @@
 import type { Game } from "../type.ts"
 
-const API_URL = "http://localhost:3001/games"
+const API_URL = "http://localhost:3000/games"
 
 export async function getGames(): Promise<Game[]>{
     const response = await fetch(API_URL)

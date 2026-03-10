@@ -1,6 +1,6 @@
 # Game Tracker App
 
-The Game Tracker App allows you to follow the games you want to play!
+The Game Tracker App is a portfolio project, I needed and app to follow the games I played or want to play!
 
 # React + TypeScript + Vite
 
