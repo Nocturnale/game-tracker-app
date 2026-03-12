@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { Game } from "../type";
+import { DEVICE_LABELS, type Game } from "../type";
 
 type GameProps = {
   readonly game:Game;
@@ -12,7 +12,7 @@ export default function GameItem({game}:GameProps){
             <p>Nombres d'heures jouées : {game.playedHours}</p>
             <p>Statut : {game.status}</p>
             <p>Priorité : {game.priority}</p>
-            <p>Plateforme: {game.device}</p>
+            <p>Plateforme: {DEVICE_LABELS[game.device]}</p>
             
             <Link to={`/details/${game.id}`}>
                 <button>Modifier</button>

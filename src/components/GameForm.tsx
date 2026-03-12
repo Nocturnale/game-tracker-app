@@ -1,6 +1,6 @@
 import { addGame } from "../services/gameService";
 import { STATUS_OPTIONS, PRIORITY_OPTIONS, DEVICES, type Device, type Status, type Priority, type Game } from "../type"
-import { useState } from "react";
+import { useEffect, useState } from "react";
     import { useNavigate } from "react-router-dom";
 
 interface GameFormProps {
@@ -11,7 +11,8 @@ interface GameFormProps {
 export default function GameForm({initialGame, onGameAdded}: GameFormProps){
 
     const [title, setTitle] = useState(initialGame?.title ||"");
-    const [device, setDevice]= useState<Device>(initialGame?.device ||"PC");
+    const [device, setDevice]= useState<Device>("pc");
+
     const [status, setStatus] = useState<Status>(initialGame?.status ||"À faire");
     const [playedHours, setPlayedHours] = useState(initialGame?.playedHours ||0);
     const [rating, setRating] = useState(initialGame?.rating ||0);
@@ -20,6 +21,13 @@ export default function GameForm({initialGame, onGameAdded}: GameFormProps){
     const [priority, setPriority] = useState<Priority>(initialGame?.priority ||"Moyenne");
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+         console.log("initialGame", initialGame);
+        if (initialGame) {
+                setDevice(initialGame.device);
+            }
+    }, [initialGame]);
 
     const handleSubmit = async (e:React.SyntheticEvent<HTMLFormElement>) =>{
         e.preventDefault()
@@ -49,8 +57,8 @@ export default function GameForm({initialGame, onGameAdded}: GameFormProps){
                 required
             />
             <label htmlFor="device">Plateforme</label>
-            <select id="device" onChange={(e) => setDevice(e.target.value as Device)}>
-                <option>{device}</option>
+            <select id="device" value={device} onChange={(e) => setDevice(e.target.value as Device)}>
+                
                 {DEVICES.map(device =>(
                     <option key={device.value}
                         value={device.value}
@@ -60,7 +68,7 @@ export default function GameForm({initialGame, onGameAdded}: GameFormProps){
                 ))}
             </select>
             <label htmlFor="inputStatut">Statut</label>
-            <select id="inputStatut" onChange={(e) => setStatus(e.target.value as Status)}>
+            <select id="inputStatut" value={status} onChange={(e) => setStatus(e.target.value as Status)}>
                 <option>-- Choisir un statut --</option>
                 {STATUS_OPTIONS.map(status => (
                 <option key={status} value={status}>
@@ -73,6 +81,7 @@ export default function GameForm({initialGame, onGameAdded}: GameFormProps){
             <label htmlFor="heuresJouees">Nombre d'heures jouées</label>
             <input type="number"
                 id="heuresJouees"
+                value={playedHours}
                 onChange={(e)=> setPlayedHours(Number(e.target.value))}
             />
             <label htmlFor="inputRating">Note</label>
@@ -88,10 +97,13 @@ export default function GameForm({initialGame, onGameAdded}: GameFormProps){
             <label htmlFor="heuresEstimees" >Nombre d'heures estimées</label>
             <input type="number"
                 id="heuresEstimees"
+                value={estimatedHours}
                 onChange={(e)=> setEstimatedHours(Number(e.target.value))}
             />
             <label htmlFor="inputPriorite">Priorité</label>
-            <select id="inputPriorite" onChange={(e)=> setPriority(e.target.value as Priority)}>
+            <select id="inputPriorite" 
+                value={priority}
+                onChange={(e)=> setPriority(e.target.value as Priority)}>
                 {PRIORITY_OPTIONS.map(priority =>(
                     <option key={priority}
                         value={priority}>

@@ -1,7 +1,7 @@
 
 export type Priority = "Basse" | "Moyenne" | "Haute";
 export type Status = "À faire" | "En cours" | "Terminé" | "Abandonné";
-export type Device = typeof DEVICES[number]["label"]
+export type Device = typeof DEVICES[number]["value"]
 
 export const STATUS_OPTIONS: Status[] = [
   "À faire",
@@ -35,6 +35,10 @@ export const DEVICES = [
   {label: "Mobile",value: "mobile"},
   {label: "Flash",value: "flash"}
 ] as const;
+
+export const DEVICE_LABELS: Record<Device, string> = Object.fromEntries(
+  DEVICES.map(d => [d.value, d.label])
+) as Record<Device, string>;
 
 export interface Game {
   id: number;
