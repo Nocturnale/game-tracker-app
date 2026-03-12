@@ -5,18 +5,19 @@ import { useState } from "react";
 
 interface GameFormProps {
     readonly onGameAdded: (newGame : Game) => void;
+    initialGame?: Game
 }
 
-export default function GameForm({onGameAdded}: GameFormProps){
+export default function GameForm({initialGame, onGameAdded}: GameFormProps){
 
-    const [title, setTitle] = useState("");
-    const [device, setDevice]= useState<Device>("pc");
-    const [status, setStatus] = useState<Status>("À faire");
-    const [playedHours, setPlayedHours] = useState(0);
-    const [rating, setRating] = useState(0);
+    const [title, setTitle] = useState(initialGame?.title ||"");
+    const [device, setDevice]= useState<Device>(initialGame?.device ||"PC");
+    const [status, setStatus] = useState<Status>(initialGame?.status ||"À faire");
+    const [playedHours, setPlayedHours] = useState(initialGame?.playedHours ||0);
+    const [rating, setRating] = useState(initialGame?.rating ||0);
     
-    const [estimatedHours, setEstimatedHours] = useState(0);
-    const [priority, setPriority] = useState<Priority>("Moyenne");
+    const [estimatedHours, setEstimatedHours] = useState(initialGame?.estimatedHours || 0);
+    const [priority, setPriority] = useState<Priority>(initialGame?.priority ||"Moyenne");
 
     const navigate = useNavigate();
 
@@ -49,6 +50,7 @@ export default function GameForm({onGameAdded}: GameFormProps){
             />
             <label htmlFor="device">Plateforme</label>
             <select id="device" onChange={(e) => setDevice(e.target.value as Device)}>
+                <option>{device}</option>
                 {DEVICES.map(device =>(
                     <option key={device.value}
                         value={device.value}
@@ -77,7 +79,9 @@ export default function GameForm({onGameAdded}: GameFormProps){
             <input type="number"
                 min="1"
                 max="10"
+                value={rating}
                 onChange={(e)=> setRating(Number(e.target.value))}
+                
             />
 
             {/* Si statut à faire*/}
@@ -95,7 +99,9 @@ export default function GameForm({onGameAdded}: GameFormProps){
                         </option>
                 ))}
             </select>
-            <button type="submit">Envoyer</button>
+            <button type="submit">
+                {initialGame ? "Mettre à jour" : "Ajouter"}
+            </button>
         </form>
         </>
         

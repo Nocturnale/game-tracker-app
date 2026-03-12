@@ -33,8 +33,9 @@ span{
 
 .game-list{
   display:flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin:5px;
+  flex-wrap: wrap;
   gap:10px;
 }
 .game-card{

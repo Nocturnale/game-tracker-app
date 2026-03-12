@@ -1,7 +1,7 @@
 {
   "games": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Elden Ring",
       "playedHours": 208,
       "rating": 9,
@@ -10,7 +10,7 @@
       "device": "PC"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Risk of Rain 2",
       "playedHours": 164,
       "rating": 10,
@@ -19,7 +19,7 @@
       "device": "PC"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Silent Hill 2 Remake",
       "playedHours": 6,
       "rating": 10,
@@ -28,7 +28,7 @@
       "device": "PC"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Neon Inferno",
       "playedHours": 0,
       "rating": 0,
@@ -39,7 +39,7 @@
     {
       "id": "1311",
       "title": "Sekiro",
-      "device": "pc",
+      "device": "PC",
       "status": "Terminé",
       "playedHours": 90,
       "rating": 9,
@@ -49,7 +49,7 @@
     {
       "id": "6cd0",
       "title": "Final Fantasy Tactics Advance",
-      "device": "gameboyAdvance",
+      "device": "Gameboy Advance",
       "status": "Terminé",
       "playedHours": 50,
       "rating": 8,
@@ -59,12 +59,23 @@
     {
       "id": "49ec",
       "title": "Sea of Thieves",
-      "device": "pc",
+      "device": "PC",
       "status": "En cours",
       "playedHours": 60,
       "rating": 8,
       "estimatedHours": 0,
       "priority": "Moyenne"
+    },
+    {
+      "id": "c127",
+      "title": "Resident Evil 9",
+      "device": "PC",
+      "status": "En cours",
+      "playedHours": 6,
+      "rating": 0,
+      "estimatedHours": 15,
+      "priority": "Haute"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

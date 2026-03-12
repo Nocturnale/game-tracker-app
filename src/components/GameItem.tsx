@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Game } from "../type";
 
 type GameProps = {
@@ -12,6 +13,10 @@ export default function GameItem({game}:GameProps){
             <p>Statut : {game.status}</p>
             <p>Priorité : {game.priority}</p>
             <p>Plateforme: {game.device}</p>
+            
+            <Link to={`/details/${game.id}`}>
+                <button>Modifier</button>
+            </Link>
        </>
     )
 }

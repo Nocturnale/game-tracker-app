@@ -8,6 +8,7 @@ import GameForm from './components/GameForm';
 import { useEffect, useState } from 'react';
 import type { Game } from './type';
 import { getGames } from './services/gameService';
+import GameDetails from './components/GameDetails';
 
 function App() {
 
@@ -29,6 +30,9 @@ function App() {
        <Routes>
         <Route path="/" element={<GameList games={games}/>} />
         <Route path="/ajouter" element={<GameForm onGameAdded={handleOnGameAdded} />} />
+        
+        <Route path="/details/:id" element={<GameDetails />} />
+
       </Routes>
       
     </BrowserRouter>

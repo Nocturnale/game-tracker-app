@@ -1,7 +1,7 @@
 
 export type Priority = "Basse" | "Moyenne" | "Haute";
 export type Status = "À faire" | "En cours" | "Terminé" | "Abandonné";
-export type Device = typeof DEVICES[number]["value"]
+export type Device = typeof DEVICES[number]["label"]
 
 export const STATUS_OPTIONS: Status[] = [
   "À faire",
@@ -29,7 +29,8 @@ export const DEVICES = [
   {label: "N64",value: "n64"},
   {label: "Switch",value: "switch"},
   {label: "Switch 2",value: "switch2"},
-  {label: "Wii",value: "wii"},{label: "Wii U",value: "wiiU"},
+  {label: "Wii",value: "wii"},
+  {label: "Wii U",value: "wiiU"},
   {label: "Xbox",value: "xbox"},
   {label: "Mobile",value: "mobile"},
   {label: "Flash",value: "flash"}
