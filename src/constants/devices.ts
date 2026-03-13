@@ -1,20 +1,5 @@
-
-export type Priority = "Basse" | "Moyenne" | "Haute";
-export type Status = "À faire" | "En cours" | "Terminé" | "Abandonné";
 export type Device = typeof DEVICES[number]["value"]
 
-export const STATUS_OPTIONS: Status[] = [
-  "À faire",
-  "En cours",
-  "Terminé",
-  "Abandonné"
-];
-
-export const PRIORITY_OPTIONS: Priority[] = [
-  "Basse",
-  "Moyenne",
-  "Haute"
-]
 export const DEVICES = [
   {label: "PC",value: "pc"},
   {label: "Game Boy", value: "gameboy"},
@@ -39,15 +24,3 @@ export const DEVICES = [
 export const DEVICE_LABELS: Record<Device, string> = Object.fromEntries(
   DEVICES.map(d => [d.value, d.label])
 ) as Record<Device, string>;
-
-export interface Game {
-  id: number;
-  title: string;
-  playedHours: number;
-  estimatedHours:number;
-  rating: number;
-  priority: Priority;
-  status: Status;
-  device: Device;
-}
- 

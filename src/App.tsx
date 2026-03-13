@@ -6,7 +6,7 @@ import GameList from './components/GameList';
 import Header from './components/Header';
 import GameForm from './components/GameForm';
 import { useEffect, useState } from 'react';
-import type { Game } from './type';
+import type { Game } from './types/Game';
 import { getGames } from './services/gameService';
 import GameDetails from './components/GameDetails';
 

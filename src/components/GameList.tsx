@@ -1,5 +1,5 @@
 import GameItem from "./GameItem";
-import type {Game} from "../type";
+import type {Game} from "../types/Game";
 
 
 type GameListProps = {

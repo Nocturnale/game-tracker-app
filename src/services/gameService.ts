@@ -1,4 +1,4 @@
-import type { Game } from "../type.ts"
+import type { Game } from "../types/Game.ts"
 
 const API_URL = "http://localhost:3000/games"
 

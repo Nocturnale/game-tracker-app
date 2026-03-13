@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type { Game } from "../type";
+import type { Game } from "../types/Game";
 import GameForm from "./GameForm";
 
 export default function GameDetails(){

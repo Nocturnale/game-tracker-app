@@ -1,7 +1,10 @@
 import { addGame } from "../services/gameService";
-import { STATUS_OPTIONS, PRIORITY_OPTIONS, DEVICES, type Device, type Status, type Priority, type Game } from "../type"
 import { useEffect, useState } from "react";
-    import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import type { Game } from "../types/Game";
+import { DEVICES, type Device } from "../constants/devices";
+import { PRIORITY_OPTIONS, type Priority } from "../constants/priority";
+import { STATUS_OPTIONS, type Status } from "../constants/status";
 
 interface GameFormProps {
     readonly onGameAdded: (newGame : Game) => void;
