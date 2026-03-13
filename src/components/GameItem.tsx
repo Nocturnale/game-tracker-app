@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { DEVICE_LABELS, type Game } from "../types/Game";
+import { type Game } from "../types/Game";
+import { DEVICE_LABELS } from "../constants/devices";
 
 type GameProps = {
   readonly game:Game;
