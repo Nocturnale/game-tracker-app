@@ -1,9 +1,12 @@
 import { Entity, PrimaryKey, Property } from '@mikro-orm/decorators/legacy';
 
-@Entity()
+@Entity({ tableName: 'platforms' })
 export class Platform {
 
-  @PrimaryKey()
+  @PrimaryKey({
+    type: 'uuid',
+    defaultRaw: 'gen_random_uuid()',
+  })
   id!: number;
 
   @Property()

@@ -5,25 +5,25 @@
   ],
   "tables": [
     {
-      "name": "platform",
+      "name": "platforms",
       "schema": "public",
       "columns": {
         "id": {
           "name": "id",
-          "type": "int",
+          "type": "uuid",
           "unsigned": false,
-          "autoincrement": true,
+          "autoincrement": false,
           "primary": true,
           "nullable": false,
           "unique": false,
           "length": null,
           "precision": null,
           "scale": null,
-          "default": null,
+          "default": "gen_random_uuid()",
           "comment": null,
           "collation": null,
           "enumItems": [],
-          "mappedType": "integer"
+          "mappedType": "uuid"
         },
         "name": {
           "name": "name",
@@ -50,7 +50,7 @@
           ],
           "composite": false,
           "constraint": true,
-          "keyName": "platform_pkey",
+          "keyName": "platforms_pkey",
           "primary": true,
           "unique": true
         }
