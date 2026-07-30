@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,23 +7,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Platform = void 0;
-const legacy_1 = require("@mikro-orm/decorators/legacy");
+import { Entity, PrimaryKey, Property } from '@mikro-orm/decorators/legacy';
 let Platform = class Platform {
     id;
     name;
 };
-exports.Platform = Platform;
 __decorate([
-    (0, legacy_1.PrimaryKey)(),
+    PrimaryKey({
+        type: 'uuid',
+        defaultRaw: 'gen_random_uuid()',
+    }),
     __metadata("design:type", Number)
 ], Platform.prototype, "id", void 0);
 __decorate([
-    (0, legacy_1.Property)(),
+    Property(),
     __metadata("design:type", String)
 ], Platform.prototype, "name", void 0);
-exports.Platform = Platform = __decorate([
-    (0, legacy_1.Entity)()
+Platform = __decorate([
+    Entity({ tableName: 'platforms' })
 ], Platform);
+export { Platform };
 //# sourceMappingURL=platform.entity.js.map
