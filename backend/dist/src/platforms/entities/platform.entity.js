@@ -17,7 +17,7 @@ __decorate([
         type: 'uuid',
         defaultRaw: 'gen_random_uuid()',
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], Platform.prototype, "id", void 0);
 __decorate([
     Property(),

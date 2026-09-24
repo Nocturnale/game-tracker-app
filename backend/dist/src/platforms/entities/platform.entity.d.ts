@@ -1,4 +1,4 @@
 export declare class Platform {
-    id: number;
+    id: string;
     name: string;
 }

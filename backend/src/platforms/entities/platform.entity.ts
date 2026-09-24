@@ -7,7 +7,7 @@ export class Platform {
     type: 'uuid',
     defaultRaw: 'gen_random_uuid()',
   })
-  id!: number;
+  id!: string;
 
   @Property()
   name!: string;
