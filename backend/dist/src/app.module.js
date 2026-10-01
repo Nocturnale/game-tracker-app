@@ -8,6 +8,7 @@ import { Module } from '@nestjs/common';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { PlatformsModule } from './platforms/platforms.module.js';
 import mikroOrmConfig from '../mikro-orm.config.js';
+import { GamesModule } from './games/games.module.js';
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -15,6 +16,7 @@ AppModule = __decorate([
         imports: [
             MikroOrmModule.forRoot(mikroOrmConfig),
             PlatformsModule,
+            GamesModule,
         ],
     })
 ], AppModule);
