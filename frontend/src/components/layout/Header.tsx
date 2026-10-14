@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router'
 import logoGame from '../../assets/icon-gc.png'
 
 export default function Header(){
@@ -9,11 +10,20 @@ export default function Header(){
                         src={logoGame} 
                         alt="Logo appli game tracker"
                         className="h-10 w-10" />
-                    <span className="text-xl font-bold">game tracking</span>
+                    <span className="text-xl font-bold">game_tracker</span>
                 </div>
                 <ul className="flex items-center gap-6">
-                    <li>Liste des jeux</li>
-                    <li>Ajouter jeu</li>
+                    <li>
+                        <NavLink to="/" className="hover:underline">
+                            Liste des jeux
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/games/new" className="hover:underline">
+                            Ajouter jeu
+                        </NavLink>
+                        
+                    </li>
                 </ul>
             </nav>
         </header>

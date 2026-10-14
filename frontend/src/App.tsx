@@ -1,28 +1,20 @@
-import { GameList } from './components/games/GameList';
-import Header from './components/layout/Header';
-import { useGames } from './hooks/useGames';
+import { BrowserRouter, Route, Routes } from "react-router"
+import Homepage from "./pages/Homepage"
+import Header from "./components/layout/Header"
+import GameCreatePage from "./pages/GameCreatePage"
+
 
 function App() {
-  const {data: games, isPending, isError } = useGames();
-
-  if (isPending){
-    return <p>Chargement...</p>;
-  }
-
-  if (isError){
-    return <p>Impossible de charger les jeux</p>
-  }
-
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <main className="p-8">
-        <h1 className="text-3xl font-bold">Mes jeux</h1>
-        <GameList games={games}/>
-      </main>
-    </>
-    
-  );
+
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/games/new" element={<GameCreatePage />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App
