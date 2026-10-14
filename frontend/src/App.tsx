@@ -1,27 +1,27 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import { getGames } from './api/games';
-import type { Game } from '@game-tracker-app/shared';
+import { GameList } from './components/games/GameList';
+import Header from './components/layout/Header';
+import { useGames } from './hooks/useGames';
 
 function App() {
-  const [games, setGames] = useState<Game[]>([]);
+  const {data: games, isPending, isError } = useGames();
 
-  useEffect(() => {
-    getGames().then(setGames);
-  }, []);
+  if (isPending){
+    return <p>Chargement...</p>;
+  }
+
+  if (isError){
+    return <p>Impossible de charger les jeux</p>
+  }
 
   return (
-    <main>
-      <h1>Mes jeux</h1>
-
-      <ul>
-        {games.map((game) => (
-          <li key={game.id}>
-            {game.title} — {game.status}
-          </li>
-        ))}
-      </ul>
-    </main>
+    <>
+      <Header />
+      <main className="p-8">
+        <h1 className="text-3xl font-bold">Mes jeux</h1>
+        <GameList games={games}/>
+      </main>
+    </>
+    
   );
 }
 
