@@ -28,7 +28,9 @@ export class GamesService {
     }
 
     async findAll(): Promise<Game[]>{
-        const games = await this.em.findAll(Game)
+        const games = await this.em.findAll(Game, {
+            populate: ['platform'],
+        })
 
         return games
     }
