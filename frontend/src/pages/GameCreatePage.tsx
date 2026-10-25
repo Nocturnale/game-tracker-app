@@ -169,7 +169,7 @@ export default function GameCreatePage() {
             <button
               type="submit"
               disabled={createGameMutation.isPending || isLoadingPlatforms || platformsError }
-              className="round bg-[#ff5757] px-4 py-2 font-medium text-white hover:opacity-90 disabled:opacity-50"
+              className="round bg-[#6b5cb1] px-4 py-2 font-medium text-white hover:opacity-90 disabled:opacity-50"
             >
               { createGameMutation.isPending ? 'Création...' : 'Créer le jeu'}
             </button>

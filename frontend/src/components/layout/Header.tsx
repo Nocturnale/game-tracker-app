@@ -14,13 +14,13 @@ export default function Header(){
                 </div>
                 <ul className="flex items-center gap-6">
                     <li>
-                        <NavLink to="/" className="hover:underline">
+                        <NavLink to="/" className="hover:underline underline-offset-6 decoration-2">
                             Liste des jeux
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/games/new" className="hover:underline">
-                            Ajouter jeu
+                        <NavLink to="/games/new" className="hover:underline underline-offset-6 decoration-2">
+                            Ajouter un jeu
                         </NavLink>
                         
                     </li>
