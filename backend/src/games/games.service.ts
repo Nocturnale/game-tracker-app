@@ -35,6 +35,20 @@ export class GamesService {
         return games
     }
 
+    async getGameById(id: string): Promise<Game>{
+        const game = await this.em.findOne(
+            Game,
+            { id },
+            { populate: ['platform'] },
+        );
+
+        if (!game){
+            throw new NotFoundException(`game with id ${id} not found`)
+        }
+
+        return game
+    }
+    
     async update(id: string, data: UpdateGameInput){
         const game = await this.em.findOne(Game, id)
 

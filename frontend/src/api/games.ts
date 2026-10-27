@@ -12,6 +12,18 @@ export async function getGames(): Promise<Game[]> {
   return response.json();
 }
 
+export async function getGameById(id: string): Promise<Game>{
+  const response = await fetch(
+    `${API_URL}/games/${id}`,
+  );
+
+  if(!response.ok){
+    throw new Error('Erreur lors de la récupération du jeu');
+  }
+
+  return response.json();
+}
+
 export async function createGame(data: CreateGame): Promise<Game>{
   const response = await fetch(`${API_URL}/games`, {
     method: 'POST',

@@ -23,6 +23,11 @@ export class GamesController {
         return this.gamesService.findAll();
     }
 
+    @Get(':id')
+    getGameById(@Param('id') id: string){
+        return this.gamesService.getGameById(id)
+    }
+
     @Patch(':id')
     update(
         @Param('id') id:string,

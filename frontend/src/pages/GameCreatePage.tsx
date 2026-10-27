@@ -30,7 +30,7 @@ export default function GameCreatePage() {
   };
 
     return (
-      <main className="mx-auto max-w-2xl p-6">
+      <main className="mx-auto max-w-2xl p-6 bg-[#ffd54f] rounded-sm m-4">
         <h1 className="mb-6 text-3xl font-bold">Ajouter un jeu</h1>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -176,7 +176,7 @@ export default function GameCreatePage() {
             <button 
               type="button"
               onClick={() => navigate('/')}
-              className="rounded border px-4 py-2"
+              className="rounded border px-4 py-2 hover:bg-[#ff5757] hover:text-white"
             >
               Annuler
             </button>
