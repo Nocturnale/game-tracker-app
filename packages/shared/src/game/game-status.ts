@@ -3,6 +3,7 @@ export const GAME_STATUSES = [
     'En cours',
     'Terminé',
     'Abandonné',
+    'Infini',
   ] as const;
   
 export type GameStatus = (typeof GAME_STATUSES)[number];
