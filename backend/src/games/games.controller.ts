@@ -1,7 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
 import { GamesService } from "./games.service.js";
 import { ZodValidationPipe } from "../common/pipes/zod-validation.pipe.js";
-import { CreateGame, createGameSchema, UpdateGameInput, updateGameSchema } from '@game-tracker-app/shared';
+import { CreateGame, createGameSchema, GameFiltering, gameFilteringSchema, UpdateGameInput, updateGameSchema } from '@game-tracker-app/shared';
 
 @Controller('games')
 export class GamesController {
@@ -19,8 +19,11 @@ export class GamesController {
     }  
 
     @Get()
-    findAll(){
-        return this.gamesService.findAll();
+    findAll(
+        @Query(new ZodValidationPipe(gameFilteringSchema))
+        filters: GameFiltering,
+    ){
+        return this.gamesService.findAll(filters);
     }
 
     @Get(':id')

@@ -1,8 +1,9 @@
 import { EntityManager } from "@mikro-orm/core";
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { CreateGame, UpdateGameInput } from '@game-tracker-app/shared';
+import { CreateGame, GameFiltering, UpdateGameInput } from '@game-tracker-app/shared';
 import { Game } from "./entities/game.entity.js";
 import { Platform } from "../platforms/entities/platform.entity.js";
+import { filter } from "rxjs";
 
 @Injectable()
 export class GamesService {
@@ -27,10 +28,18 @@ export class GamesService {
         return game;
     }
 
-    async findAll(): Promise<Game[]>{
-        const games = await this.em.findAll(Game, {
+    async findAll(filters?: GameFiltering): Promise<Game[]>{
+        const where = {
+            ...(filters?.status && { status: filters.status }),
+            ...(filters?.title && { title: { $ilike: `%${filters.title}%`} }),
+            ...(filters?.platformId && {
+                platform: { id: filters.platformId },
+            })
+        }
+
+        const games = await this.em.find(Game, where, {
             populate: ['platform'],
-        })
+        });
 
         return games
     }
