@@ -33,3 +33,11 @@ export const updateGameSchema =
     createGameSchema.partial();
 
 export type UpdateGameInput = z.infer<typeof updateGameSchema>;
+
+export const gameFilteringSchema = z.object({
+    title: z.string().optional(),
+    platformId: z.uuid().optional(),
+    status: z.enum(GAME_STATUSES).optional()
+});
+
+export type GameFiltering = z.infer<typeof gameFilteringSchema>

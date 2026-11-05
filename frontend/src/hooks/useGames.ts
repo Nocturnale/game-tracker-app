@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getGames } from "../api/games";
+import type { GameFiltering } from "@game-tracker-app/shared";
 
-export function useGames() {
+export function useGames(filters?: GameFiltering) {
     return useQuery({
-        queryKey: ['games'],
-        queryFn: getGames,
+        queryKey: ['games', filters],
+        queryFn: () => getGames(filters),
     });
 }

@@ -1,9 +1,30 @@
-import type { CreateGame, Game } from '@game-tracker-app/shared';
+import type { CreateGame, Game, GameFiltering } from '@game-tracker-app/shared';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-export async function getGames(): Promise<Game[]> {
-  const response = await fetch(`${API_URL}/games`);
+export async function getGames(
+  filters?:GameFiltering
+): Promise<Game[]> {
+
+  const params = new URLSearchParams();
+
+  if(filters?.title?.trim()) {
+    params.set('title', filters.title.trim());
+  }
+
+  if(filters?.status){
+    params.set('status', filters.status)
+  }
+
+  if(filters?.platformId) {
+    params.set('platformId', filters.platformId)
+  }
+
+  const queryString = params.toString();
+  
+  const response = await fetch(
+    queryString ? `${API_URL}/games?${queryString}` : `${API_URL}/games`
+  );
 
   if (!response.ok) {
     throw new Error('Impossible de récupérer les jeux');
