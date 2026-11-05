@@ -4,15 +4,22 @@ import { useGames } from "../hooks/useGames";
 import type { GameFiltering } from "@game-tracker-app/shared";
 import { usePlatforms } from "../hooks/usePlatforms";
 import { GameFilters } from "../components/games/GameFilters";
+import { useDebounce } from "../hooks/useDebounce";
 
 export default function HomePage() {
     const [filters, setFilters] = useState<GameFiltering>({});
+
+    const debouncedTitle = useDebounce(filters.title, 500);
+    const apiFilters = {
+        ...filters,
+        title: debouncedTitle,
+    };
 
     const {
         data: games, 
         isPending, 
         isError 
-    } = useGames(filters);
+    } = useGames(apiFilters);
 
     const {
         data: platforms,
